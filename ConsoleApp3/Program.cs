@@ -45,17 +45,10 @@ namespace ConsoleApp3
 
             using (FileStream file = new FileStream($"..\\..\\{filePath}.json", FileMode.Create))
             {
-                JsonSerializer.Serialize(file, countingResults);
-              
+                JsonSerializer.Serialize(file, countingResults);              
             }
         }
-        [Serializable]
-        public class CountingResults
-        {
-            public int maxNumber { get; set; }
-            public int minNumber { get; set; }
-            public double meanNumber { get; set; }
-        }
+      
         public static int maxNum(int[] nums)
         {
             int max = 0;
