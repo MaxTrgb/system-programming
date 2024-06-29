@@ -20,12 +20,11 @@ namespace ConsoleApp3
             }
 
             int max = maxNum(nums);
-            Console.WriteLine("Max number: "+max);
-
-            int min = minNum(nums);
-            Console.WriteLine("\nMin number: "+min);
-
             double mean = meanNum(nums);
+            int min = minNum(nums);
+
+            Console.WriteLine("Max number: "+max);
+            Console.WriteLine("\nMin number: "+min);
             Console.WriteLine("\nMean number: "+mean);
 
             CountingResults countingResults = new CountingResults();
@@ -42,11 +41,11 @@ namespace ConsoleApp3
         private static void writeFile(CountingResults countingResults)
         {
             string fileName = "CountingResults";
-            string filePath = $"..\\..\\{fileName}.json";
+            string filePath = $"..\\..\\{fileName}";
 
-            using (FileStream file = new FileStream($"..\\..\\filePath.json", FileMode.Create))
+            using (FileStream file = new FileStream($"..\\..\\{filePath}.json", FileMode.Create))
             {
-                JsonSerializer.Serialize<CountingResults>(file, countingResults);
+                JsonSerializer.Serialize(file, countingResults);
               
             }
         }
@@ -92,8 +91,6 @@ namespace ConsoleApp3
             thread.Join();
             return mean;
         }
-
-
 
         //Task 1, 2, 3:
         //public static void taskOne(int start, int stop, int threadsNum)
